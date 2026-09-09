@@ -1,10 +1,10 @@
-# 🦋 Sentinelle — Sonde de surveillance réseau sur Raspberry Pi 5
+# 🦋 Sentinelle - Sonde de surveillance réseau sur Raspberry Pi 5
 
 > Un Raspberry Pi 5 transformé en sonde de surveillance réseau domestique : détection de nouveaux appareils, IDS temps réel, alertes Telegram et dashboard web.
 
 ## 🎯 Le projet
 
-Sentinelle répond à une question simple : *qui est connecté sur mon réseau Wi-Fi, et comment réagir si quelque chose de suspect se produit ?*
+Sentinelle répond à une question : *qui est connecté sur mon réseau Wi-Fi, et comment réagir si quelque chose de suspect se produit ?*
 
 Le système tourne 24h/24 en arrière-plan sur un Raspberry Pi 5, analyse le trafic du réseau domestique, détecte les comportements suspects et envoie des alertes en temps réel sur Telegram.
 
@@ -22,7 +22,7 @@ Réseau Wi-Fi → Raspberry Pi Sentinelle → Analyse (Suricata + arp-scan) → 
 | Composant | Rôle |
 |---|---|
 | **arp-scan / nmap** | Découverte des appareils connectés (IP, MAC, fabricant) |
-| **Suricata** | IDS — analyse le trafic en temps réel contre 50 000+ règles de sécurité |
+| **Suricata** | IDS - analyse le trafic en temps réel contre 50 000+ règles de sécurité |
 | **Bot Telegram** | Notifications instantanées dès qu'une anomalie est détectée |
 | **Dashboard Flask** | Visualisation des alertes + playbook de réponse aux incidents |
 | **Fail2ban** | Bannissement automatique des IP en cas de brute-force SSH |
@@ -55,7 +55,7 @@ OS : **Raspberry Pi OS Lite 64-bit** (pas d'interface graphique, pilotage entiè
 
 ## 🔍 Découverte réseau
 
-`arp-scan` et `nmap` identifient les appareils connectés par IP/MAC/fabricant. Par discrétion, la surveillance passive utilise `nmap -sn` (ping simple) plutôt qu'un scan agressif — un test avec `nmap -A` a d'ailleurs déclenché une alerte ESET sur un PC du réseau, preuve que certains scans sont détectables.
+`arp-scan` et `nmap` identifient les appareils connectés par IP/MAC/fabricant. Par discrétion, la surveillance passive utilise `nmap -sn` (ping simple) plutôt qu'un scan agressif - un test avec `nmap -A` a d'ailleurs déclenché une alerte ESET sur un PC du réseau, preuve que certains scans sont détectables.
 
 **Limite connue** : les téléphones récents (iOS 14+, Android 10+) randomisent leur adresse MAC, ce qui rend leur identification peu fiable par ce seul biais.
 
