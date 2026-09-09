@@ -1,0 +1,15 @@
+# A placer dans /etc/systemd/system/sentinelle.service
+# Puis : sudo systemctl enable sentinelle && sudo systemctl start sentinelle
+
+[Unit]
+Description=Sentinelle - Surveillance reseau (scan + alertes Telegram)
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/sentinel/scripts/scan_reseau.py
+WorkingDirectory=/home/sentinel/scripts
+Restart=always
+User=sentinel
+
+[Install]
+WantedBy=multi-user.target

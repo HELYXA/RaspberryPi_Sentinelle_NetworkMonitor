@@ -1,0 +1,5 @@
+# Regle de test personnalisee - declenche une alerte sur chaque ping detecte
+# A placer dans /var/lib/suricata/rules/test.rules
+# Utile pour verifier que Suricata fonctionne correctement.
+
+alert icmp any any -> any any (msg:"Test ping detecte"; sid:9000001; rev:1;)

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="refresh" content="30">
+<title>Sentinelle 🦋 - Dashboard</title>
+<style>
+  body { font-family: monospace; background: #0f0f14; color: #e0e0e0; padding: 20px; }
+  h1 { color: #7c3aed; }
+  h2 { color: #a78bfa; border-bottom: 1px solid #333; padding-bottom: 5px; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+  th { background: #1a1a24; color: #7c3aed; text-align: left; padding: 8px; }
+  td { padding: 8px; border-bottom: 1px solid #222; }
+  tr:hover { background: #1a1a24; }
+</style>
+</head>
+<body>
+<h1>🦋 Sentinelle - Dashboard</h1>
+
+<h2>Dernières alertes Suricata</h2>
+<table>
+  <tr><th>Horodatage</th><th>IP source</th><th>IP dest</th><th>Signature</th></tr>
+  {% for a in alertes %}
+  <tr>
+    <td>{{ a.timestamp }}</td>
+    <td>{{ a.src_ip }}</td>
+    <td>{{ a.dest_ip }}</td>
+    <td>{{ a.signature }}</td>
+  </tr>
+  {% else %}
+  <tr><td colspan="4">Aucune alerte pour le moment.</td></tr>
+  {% endfor %}
+</table>
+
+<h2>Playbook de réponse aux incidents</h2>
+<table>
+  <tr><th>Menace détectée</th><th>Actions à mener</th></tr>
+  {% for p in playbook %}
+  <tr>
+    <td>{{ p.menace }}</td>
+    <td>{{ p.actions }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>

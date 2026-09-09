@@ -1,0 +1,15 @@
+# A placer dans /etc/systemd/system/suricata-alerte.service
+# Puis : sudo systemctl enable suricata-alerte && sudo systemctl start suricata-alerte
+
+[Unit]
+Description=Sentinelle - Alertes Telegram sur detection Suricata
+After=suricata.service
+
+[Service]
+ExecStart=/usr/bin/python3 /home/sentinel/scripts/suricata_alerte.py
+WorkingDirectory=/home/sentinel/scripts
+Restart=always
+User=sentinel
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,13 @@
+# A placer dans /etc/fail2ban/jail.local
+# Bannit une IP pendant 1h si elle echoue 3 fois en SSH en moins de 10 min.
+
+[DEFAULT]
+bantime = 1h
+findtime = 10m
+maxretry = 3
+
+[sshd]
+enabled = true
+port = ssh
+logpath = /var/log/auth.log
+maxretry = 3

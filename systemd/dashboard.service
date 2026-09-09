@@ -1,0 +1,15 @@
+# A placer dans /etc/systemd/system/dashboard.service
+# Puis : sudo systemctl enable dashboard && sudo systemctl start dashboard
+
+[Unit]
+Description=Sentinelle - Dashboard web Flask
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/sentinel/dashboard/app.py
+WorkingDirectory=/home/sentinel/dashboard
+Restart=always
+User=sentinel
+
+[Install]
+WantedBy=multi-user.target
