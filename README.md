@@ -49,8 +49,7 @@ OS : **Raspberry Pi OS Lite 64-bit** (pas d'interface graphique, pilotage entiè
 │   ├── sentinelle.service
 │   ├── suricata-alerte.service
 │   └── dashboard.service
-└── docs/
-    └── PROJET_RASPBERRY.pdf    # Dossier de rendu complet
+
 ```
 
 ## 🔍 Découverte réseau
