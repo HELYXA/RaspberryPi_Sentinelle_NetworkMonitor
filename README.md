@@ -104,4 +104,4 @@ Sentinelle surveille le réseau domestique en continu et est capable de :
 
 ---
 
-*Projet personnel — Bachelor Cybersécurité.*
+*Projet personnel - Bachelor Cybersécurité.*
